@@ -14,9 +14,6 @@
       "ctaText": "Compare Top Savings Rates",
       "affiliateUrl": "https://www.bankrate.com/banking/savings/rates/",
       "affiliateUrlINR": "https://www.paisabazaar.com/savings-account/high-interest-rates/",
-      "payoutEstimateUSD": 75,
-      "payoutEstimateINR": 2500,
-      "icon": "shield-check",
       "tag": "Zero Risk • FDIC/DICGC Insured"
     },
     {
@@ -28,66 +25,18 @@
       "ctaText": "Check Consolidation Rates",
       "affiliateUrl": "https://www.nerdwallet.com/best/loans/personal-loans/best-debt-consolidation-loans",
       "affiliateUrlINR": "https://www.bankbazaar.com/personal-loan.html",
-      "payoutEstimateUSD": 100,
-      "payoutEstimateINR": 3500,
-      "icon": "trending-down",
       "tag": "Rates from 8.5% APR"
-    },
-    {
-      "id": "budget_tracker",
-      "category": "Smart Budgeting",
-      "badge": "Free Tool",
-      "title": "Automated Budget & Subscription Tracker",
-      "description": "Cancel forgotten recurring subscriptions and automatically categorize your monthly expenses with a secure, zero-friction mobile budgeting app.",
-      "ctaText": "Try Free Tracker App",
-      "affiliateUrl": "https://wallet.budgetbakers.com/",
-      "affiliateUrlINR": "https://moneyview.in/money-manager-app",
-      "payoutEstimateUSD": 15,
-      "payoutEstimateINR": 500,
-      "icon": "pie-chart",
-      "tag": "100% Free Plan Available"
     },
     {
       "id": "brokerage_invest",
       "category": "Wealth Building",
       "badge": "Long Term",
-      "title": "Zero-Commission Automated Investing",
+      "title": "Zero-Commission Automated Investing (Demat)",
       "description": "Put your long-term savings to work with fractional shares, index funds, and automatic dividend reinvesting. Free paperless account opening.",
       "ctaText": "Open Free Demat & Start",
       "affiliateUrl": "https://investor.vanguard.com/",
       "affiliateUrlINR": "https://zerodha.com/open-account",
-      "payoutEstimateUSD": 60,
-      "payoutEstimateINR": 2000,
-      "icon": "trending-up",
       "tag": "Commission-Free • Top Rated"
-    },
-    {
-      "id": "credit_cards_cashback",
-      "category": "Credit Cards & Rewards",
-      "badge": "Top Payout",
-      "title": "5% Unlimited Cashback Credit Card",
-      "description": "Earn 5% on online shopping, dining, and utility bills. Zero joining fee for new qualified applicants with instant digital KYC.",
-      "ctaText": "Apply Now (Check Eligibility)",
-      "affiliateUrl": "https://creditcards.chase.com/cash-back-credit-cards/freedom/unlimited",
-      "affiliateUrlINR": "https://www.sbicard.com/en/personal/credit-cards/rewards/cashback-sbi-card.page",
-      "payoutEstimateUSD": 150,
-      "payoutEstimateINR": 2500,
-      "icon": "credit-card",
-      "tag": "5% Cashback • Free Airport Lounge"
-    },
-    {
-      "id": "loan_refinance_mortgage",
-      "category": "Loan Prepayment & Refinance",
-      "badge": "Save ₹10 Lakhs+",
-      "title": "Lowest Rate Home & Personal Loan Balance Transfer",
-      "description": "Transfer your existing high-rate home or personal loan to rates starting at 8.35% p.a. Zero processing fee offers available.",
-      "ctaText": "Check Refinance Rates",
-      "affiliateUrl": "https://www.nerdwallet.com/refinance-mortgage-rates",
-      "affiliateUrlINR": "https://www.bankbazaar.com/home-loan-balance-transfer.html",
-      "payoutEstimateUSD": 120,
-      "payoutEstimateINR": 3500,
-      "icon": "home",
-      "tag": "Rates from 8.35% • Save Lakhs"
     },
     {
       "id": "tax_insurance_elss",
@@ -98,154 +47,271 @@
       "ctaText": "Explore Tax-Saver Funds",
       "affiliateUrl": "https://investor.vanguard.com/",
       "affiliateUrlINR": "https://groww.in/mutual-funds/elss-funds",
-      "payoutEstimateUSD": 80,
-      "payoutEstimateINR": 2000,
-      "icon": "shield",
       "tag": "Save up to ₹46,800 in Taxes"
     },
     {
       "id": "gold_bonds_hedging",
       "category": "Gold & Downside Hedging",
       "badge": "Safe Haven",
-      "title": "24K 99.9% Digital Gold & High-Yield Asset Backed Bonds",
+      "title": "24K 99.9% Digital Gold & Asset Backed Bonds",
       "description": "Protect your stock portfolio against market crashes with 24K digital gold and senior secured bonds paying 9.5% - 11.5% fixed yields.",
       "ctaText": "Explore Gold & Bonds",
       "affiliateUrl": "https://www.treasurydirect.gov/",
       "affiliateUrlINR": "https://www.wintwealth.com/",
-      "payoutEstimateUSD": 45,
-      "payoutEstimateINR": 1200,
-      "icon": "award",
       "tag": "Govt Backed • 9.5%+ Fixed Yield"
     },
     {
-      "id": "credit_cards_cashback",
-      "title": "BOBCARD Eterna Credit Card - travel & lounge benefits, low forex markup!",
-      "affiliateUrlINR": "https://bitli.in/qGrVkvb"
+      "id": "card_sbi_cashback",
+      "category": "Cashback & Shopping",
+      "badge": "Top Pick",
+      "title": "SBI Cashback Credit Card",
+      "description": "Flat 5% cashback on all online shopping merchants with no merchant restrictions. Direct statement credit every month + 1% fuel surcharge waiver.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/xGn3eM8",
+      "affiliateUrlINR": "https://bitli.in/xGn3eM8",
+      "tag": "Flat 5% Online Cashback"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"Lifetime Free Card and Earn Upto 10X Reward Points",
-      "affiliateUrlINR":"https://bitli.in/ynxl4S4"
+      "id": "card_hdfc_swiggy",
+      "category": "Food & Dining",
+      "badge": "Foodie Special",
+      "title": "HDFC Swiggy Credit Card",
+      "description": "10% instant cashback on Swiggy (Food delivery, Instamart, Dineout) + 5% cashback on 1,000+ top online shopping platforms.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/enkviCh",
+      "affiliateUrlINR": "https://bitli.in/enkviCh",
+      "tag": "10% Swiggy Cashback"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"Axis Flipkart Credit Card - Enjoy accelerated cashback across all your favourite categories!",
-      "affiliateUrlINR":"https://bitli.in/qrSI68g"
+      "id": "card_airtel_axis",
+      "category": "Utilities & Bills",
+      "badge": "High Savings",
+      "title": "Airtel Axis Bank Credit Card",
+      "description": "25% cashback on Airtel mobile, broadband & DTH recharges. 10% cashback on utility bills (electricity, gas, water) via Airtel Thanks + 10% on Swiggy/Zomato.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/2eKkuCS",
+      "affiliateUrlINR": "https://bitli.in/2eKkuCS",
+      "tag": "25% Bill Cashback"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"Axis Flipkart Credit Card - Enjoy accelerated cashback across all your favourite categories!",
-      "affiliateUrlINR":"https://bitli.in/qrSI68g"
+      "id": "card_axis_flipkart",
+      "category": "E-Commerce",
+      "badge": "Flipkart Top Pick",
+      "title": "Axis Bank Flipkart Credit Card",
+      "description": "5% unlimited cashback on Flipkart & Myntra. 4% cashback on preferred partners including Uber, Swiggy, PVR + 4 complimentary lounge visits/yr.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/qrSI68g",
+      "affiliateUrlINR": "https://bitli.in/qrSI68g",
+      "tag": "5% Unlimited Flipkart Cashback"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"Axis Flipkart Credit Card - Enjoy accelerated cashback across all your favourite categories!",
-      "affiliateUrlINR":"https://bitli.in/qrSI68g"
+      "id": "card_axis_myzone",
+      "category": "Movies & Dining",
+      "badge": "Entertainment",
+      "title": "Axis Bank MyZone RuPay Credit Card",
+      "description": "Buy 1 Get 1 Free on District movie tickets, flat ₹120 off on Swiggy food orders, plus scan-and-pay UPI transactions via Google Pay & PhonePe.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/eny2xwU",
+      "affiliateUrlINR": "https://bitli.in/eny2xwU",
+      "tag": "BOGO Movies • UPI Enabled"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"Indusind Tiger Credit Card - LIFETIME FREE | No Joining or Annual Fees",
-      "affiliateUrlINR":"https://bitli.in/92XpsKB"
+      "id": "card_idfc_first",
+      "category": "Lifetime Free",
+      "badge": "Zero Fee",
+      "title": "IDFC FIRST Classic / Select Credit Card",
+      "description": "Lifetime FREE card with zero joining and annual fees. Up to 10X reward points that never expire, low dynamic APR from 9%, and free roadside assistance.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/ynxl4S4",
+      "affiliateUrlINR": "https://bitli.in/ynxl4S4",
+      "tag": "Lifetime Free • 10X Rewards"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"Axis Privilege Amex Credit Card - Packed with a host of attractive benefits!",
-      "affiliateUrlINR":"https://bitli.in/FFcuNd4"
+      "id": "card_indusind_tiger",
+      "category": "Lifetime Free",
+      "badge": "Golf & Travel",
+      "title": "IndusInd Bank Tiger Credit Card",
+      "description": "Lifetime FREE card with no joining or annual fees. Complimentary golf lessons & games, 2 complimentary domestic airport lounge visits per quarter.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/92XpsKB",
+      "affiliateUrlINR": "https://bitli.in/92XpsKB",
+      "tag": "Lifetime Free • Airport Lounges"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"HDFC RuPay Credit Card - New World of 'Credit + Convenience'",
-      "affiliateUrlINR":"https://bitli.in/nn17GVM"
+      "id": "card_scapia",
+      "category": "Travel & Forex",
+      "badge": "Zero Forex",
+      "title": "Scapia Federal Co-Branded Credit Card",
+      "description": "Zero forex markup on all international transactions. Unlimited domestic airport lounge access upon meeting spend criteria, plus Scapia coin rewards.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/ag9Jyg4",
+      "affiliateUrlINR": "https://bitli.in/ag9Jyg4",
+      "tag": "Zero Forex Markup"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"Axis MyZone Rupay Credit Card - Entry level card offering benefits across Shopping, Dining and Entertainment!",
-      "affiliateUrlINR":"https://bitli.in/eny2xwU"
+      "id": "card_axis_cashback",
+      "category": "Online Shopping",
+      "badge": "Cashback",
+      "title": "Axis Cashback Credit Card",
+      "description": "Smartest pick for heavy online shoppers: direct statement credit on digital purchases, dining discounts, and 1% fuel surcharge waiver.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/jJlxetC",
+      "affiliateUrlINR": "https://bitli.in/jJlxetC",
+      "tag": "Statement Credit Cashback"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"Axis Cashback Credit Card - Smartest Pick for Heavy Online Shoppers!",
-      "affiliateUrlINR":"https://bitli.in/jJlxetC"      
+      "id": "card_bob_eterna",
+      "category": "Travel & Lounge",
+      "badge": "Premium Travel",
+      "title": "BOBCARD Eterna Credit Card",
+      "description": "Unlimited domestic airport lounge access, 3.5 reward points per ₹100 spend, low 2% forex markup, and dining discounts.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/qGrVkvb",
+      "affiliateUrlINR": "https://bitli.in/qGrVkvb",
+      "tag": "Unlimited Domestic Lounges"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"IDFC FIRST Bank Mayura Credit Card - Elevate Your Travel Experience!",
-      "affiliateUrlINR":"https://bitli.in/67Csnuj"        
+      "id": "card_idfc_mayura",
+      "category": "Luxury Travel",
+      "badge": "Zero Forex Travel",
+      "title": "IDFC FIRST Bank Mayura Credit Card",
+      "description": "Zero forex markup on all international transactions. Complimentary domestic & international airport lounge visits + 10X reward points on milestones.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/67Csnuj",
+      "affiliateUrlINR": "https://bitli.in/67Csnuj",
+      "tag": "Global Lounge Access"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"SBI Cashback Credit Card - Welcome to the World of Amazing Cashback!",
-      "affiliateUrlINR":"https://bitli.in/xGn3eM8"       
+      "id": "card_hdfc_rupay",
+      "category": "UPI Payments",
+      "badge": "UPI Enabled",
+      "title": "HDFC Bank RuPay Credit Card",
+      "description": "Link to Google Pay, Paytm & PhonePe for everyday scan-and-pay UPI transactions. Earn 3% CashPoints on groceries and dining.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/nn17GVM",
+      "affiliateUrlINR": "https://bitli.in/nn17GVM",
+      "tag": "Scan & Pay UPI Rewards"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"Axis Rewards Visa Credit Card - versatile rewards card that earns points on apparel and departmental stores!",
-      "affiliateUrlINR":"https://bitli.in/lv6Yymy"       
+      "id": "card_axis_magnus",
+      "category": "Ultra-Premium",
+      "badge": "VIP Lifestyle",
+      "title": "Axis Bank Magnus Credit Card",
+      "description": "India’s most rewarding premium credit card: unlimited international and domestic lounge access, airport meet & greet concierge, and Edge Miles.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/7UXbrM4",
+      "affiliateUrlINR": "https://bitli.in/7UXbrM4",
+      "tag": "Unlimited VIP Lounges"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"HDFC Bank Marriott Credit Card - Best for luxury stays!",
-      "affiliateUrlINR":"https://bitli.in/z92Te0P"       
+      "id": "card_axis_rewards",
+      "category": "Shopping & Rewards",
+      "badge": "10X Points",
+      "title": "Axis Bank Rewards Credit Card",
+      "description": "10X reward points on apparel and departmental stores. 2 complimentary domestic airport lounge visits per quarter and dining privileges.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/lv6Yymy",
+      "affiliateUrlINR": "https://bitli.in/lv6Yymy",
+      "tag": "10X Shopping Points"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"SBI Flipkart Credit Card - Perfect for Everyday Online Shopping!",
-      "affiliateUrlINR":"https://bitli.in/fhFfK3s"       
+      "id": "card_hdfc_marriott",
+      "category": "Hotels & Travel",
+      "badge": "Luxury Stays",
+      "title": "HDFC Bank Marriott Bonvoy Credit Card",
+      "description": "Complimentary 1 Free Night Award at Marriott hotels worldwide. Marriott Bonvoy Silver Elite Status + domestic and international lounge visits.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/z92Te0P",
+      "affiliateUrlINR": "https://bitli.in/z92Te0P",
+      "tag": "Free Hotel Night Award"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"HDFC Swiggy Ornge Credit Card - Unlocking a Wide Range of Benefits!",
-      "affiliateUrlINR":"https://bitli.in/enkviCh"
+      "id": "card_sbi_simplyclick",
+      "category": "Online Shopping",
+      "badge": "Daily Shopping",
+      "title": "SBI SimplyCLICK / Flipkart Credit Card",
+      "description": "10X reward points on Amazon, BookMyShow, Cleartrip & partner merchants. Milestone spend rewards and annual fee reversal.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/fhFfK3s",
+      "affiliateUrlINR": "https://bitli.in/fhFfK3s",
+      "tag": "10X Online Rewards"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"Built for Online Shoppers, Foodies and Frequent Flyers!",
-      "affiliateUrlINR":"https://bitli.in/2eKkuCS"      
+      "id": "card_axis_indianoil",
+      "category": "Fuel & Commute",
+      "badge": "Fuel Saver",
+      "title": "Axis Bank Indian Oil RuPay Credit Card",
+      "description": "4% value back on fuel purchases at IndianOil fuel pumps. 1% fuel surcharge waiver and seamless UPI payment support.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/Wo7Y5lx",
+      "affiliateUrlINR": "https://bitli.in/Wo7Y5lx",
+      "tag": "4% Fuel Value Back"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"Axis Magnus Credit Card - India's most rewarding credit card for travel, food and online shopping!",
-      "affiliateUrlINR":"https://bitli.in/7UXbrM4"       
+      "id": "card_axis_neo",
+      "category": "Daily Essentials",
+      "badge": "Everyday Value",
+      "title": "Axis Bank Neo Credit Card",
+      "description": "40% off on Zomato food delivery, 5% off on Amazon Pay utility bills, and 10% discount on Blinkit groceries and Myntra fashion.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/e3Vbeoq",
+      "affiliateUrlINR": "https://bitli.in/e3Vbeoq",
+      "tag": "Zomato & Amazon Discounts"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"Axis Indian Oil Rupay Credit Card - Designed to benefit you on every fuel transaction!",
-      "affiliateUrlINR":"https://bitli.in/Wo7Y5lx"       
+      "id": "card_uni_goldx",
+      "category": "Gold Rewards",
+      "badge": "Digital Gold",
+      "title": "Uni GoldX RuPay Credit Card",
+      "description": "Lifetime FREE RuPay credit card offering real 24K digital gold cashback on every spend. Scan and pay on any UPI QR code effortlessly.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/2i3grrH",
+      "affiliateUrlINR": "https://bitli.in/2i3grrH",
+      "tag": "24K Gold Cashback • UPI"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"Axis Neo Rupay Credit Card - Best Card for Daily Lifestyle Expenses!",
-      "affiliateUrlINR":"https://bitli.in/e3Vbeoq"          
+      "id": "card_tata_neu_infinity",
+      "category": "Tata Brands & UPI",
+      "badge": "10% NeuCoins",
+      "title": "HDFC Tata Neu Infinity Credit Card",
+      "description": "Up to 10% NeuCoins on Tata Neu, BigBasket, 1mg, Croma & Air India. 1.5% NeuCoins on all RuPay UPI transactions + 8 domestic airport lounges/yr.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/kGyHat7",
+      "affiliateUrlINR": "https://bitli.in/kGyHat7",
+      "tag": "10% Tata NeuCoins + Lounges"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"Scapia Co-Branded Credit Card - Best Travel Card in India!",
-      "affiliateUrlINR":"https://bitli.in/ag9Jyg4"         
+      "id": "card_tata_neu_plus",
+      "category": "Tata Brands & UPI",
+      "badge": "5% NeuCoins",
+      "title": "HDFC Tata Neu Plus Credit Card",
+      "description": "5% NeuCoins on BigBasket, 1mg, and Tata CliQ, 1% NeuCoins on all UPI transactions with easy annual spend waiver.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/EqZctrl",
+      "affiliateUrlINR": "https://bitli.in/EqZctrl",
+      "tag": "5% Tata NeuCoins"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"Uni GoldX Credit Card - Free RuPay Card With Unlimited Rewards!",
-      "affiliateUrlINR":"https://bitli.in/2i3grrH"        
+      "id": "card_kotak_platinum",
+      "category": "Lifestyle & Movies",
+      "badge": "Movie Perks",
+      "title": "Kotak League Platinum Credit Card",
+      "description": "8X reward points on apparel & dining. Free PVR movie tickets on quarterly spend milestones, plus fuel surcharge waiver.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/DMv3um2",
+      "affiliateUrlINR": "https://bitli.in/DMv3um2",
+      "tag": "Free PVR Movie Tickets"
     },
     {
-      "id":"credit_cards_cashback",
-      "title":"With this card, you can earn up to 5% cashback* on different brands, flexible billing, and seamless control via PayZapp",
-      "affiliateUrlINR":"https://bitli.in/kGyHat7"        
-    },
-    {
-      "id":"credit_cards_cashback",
-      "title":"With this card, you can earn up to 5% cashback* on different brands, flexible billing, and seamless control via PayZapp",
-      "affiliateUrlINR":"https://bitli.in/EqZctrl"         
-    },
-    {
-      "id":"credit_cards_cashback",
-      "title":"Kotak League Platinum Credit Card - Premium Lifestyle Benefits with Everyday Rewards!",
-      "affiliateUrlINR":"https://bitli.in/DMv3um2"         
-    },
-    {
-      "id":"credit_cards_cashback",
-      "title":"HSBC Platinum Credit Card - Lifetime FREE Credit Card - No Joining/Annual Fee",
-      "affiliateUrlINR":"https://bitli.in/KtxJB9i"       
+      "id": "card_hsbc_platinum",
+      "category": "Lifetime Free",
+      "badge": "Zero Fee",
+      "title": "HSBC Platinum Credit Card",
+      "description": "Lifetime FREE card with zero joining fee and zero annual fee. Domestic airport lounge access, dining rewards, and Amazon voucher bonuses.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://bitli.in/KtxJB9i",
+      "affiliateUrlINR": "https://bitli.in/KtxJB9i",
+      "tag": "Lifetime Free • Airport Lounge"
     }
   ],
   "ad_placeholders": {
