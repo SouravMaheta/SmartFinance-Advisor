@@ -1,0 +1,118 @@
+{
+  "monetization": {
+    "enabled": true,
+    "currency_focus": "multi",
+    "disclaimer": "We may receive compensation from partners when you click links. This never affects our advice."
+  },
+  "affiliates": [
+    {
+      "id": "hysa_savings",
+      "category": "High-Yield Savings",
+      "badge": "High Priority",
+      "title": "High-Yield Cash Reserve (4.5% - 5.1% APY)",
+      "description": "Standard big bank accounts pay 0.01%. Transferring your emergency fund to a top-tier HYSA earns hundreds in risk-free interest annually with full FDIC/DICGC insurance.",
+      "ctaText": "Compare Top 5% APY Accounts",
+      "affiliateUrl": "https://example.com/affiliate-hysa?ref=aifinance",
+      "payoutEstimateUSD": 75,
+      "payoutEstimateINR": 2500,
+      "icon": "shield-check",
+      "tag": "Zero Risk \u2022 FDIC Insured"
+    },
+    {
+      "id": "debt_consolidation",
+      "category": "Debt Relief & Refinance",
+      "badge": "Save Interest",
+      "title": "Low-Rate Personal Consolidation Loan",
+      "description": "If your credit card interest is 20-28% APR, consolidating into a single fixed loan at 7-11% APR can slash your monthly payment and save thousands in interest.",
+      "ctaText": "Check My Rates (No Credit Impact)",
+      "affiliateUrl": "https://example.com/affiliate-refinance?ref=aifinance",
+      "payoutEstimateUSD": 100,
+      "payoutEstimateINR": 3500,
+      "icon": "trending-down",
+      "tag": "Rates from 6.99% APR"
+    },
+    {
+      "id": "budget_tracker",
+      "category": "Smart Budgeting",
+      "badge": "Free Tool",
+      "title": "Automated Budget & Subscription Tracker",
+      "description": "Cancel forgotten recurring subscriptions and automatically categorize your monthly expenses with a secure, zero-friction mobile budgeting app.",
+      "ctaText": "Try Free Tracker App",
+      "affiliateUrl": "https://example.com/affiliate-budget-app?ref=aifinance",
+      "payoutEstimateUSD": 15,
+      "payoutEstimateINR": 500,
+      "icon": "pie-chart",
+      "tag": "100% Free Plan Available"
+    },
+    {
+      "id": "brokerage_invest",
+      "category": "Wealth Building",
+      "badge": "Long Term",
+      "title": "Zero-Commission Automated Investing",
+      "description": "Put your long-term savings to work with fractional shares, index funds, and automatic dividend reinvesting. Get free bonus stock on signup.",
+      "ctaText": "Claim Free Stock & Start",
+      "affiliateUrl": "https://example.com/affiliate-brokerage?ref=aifinance",
+      "payoutEstimateUSD": 60,
+      "payoutEstimateINR": 2000,
+      "icon": "trending-up",
+      "tag": "Commission-Free \u2022 Free Stock"
+    },
+    {
+      "id": "credit_cards_cashback",
+      "category": "Credit Cards & Rewards",
+      "badge": "Top Payout",
+      "title": "5% Unlimited Cashback Credit Card",
+      "description": "Earn 5% on online shopping, dining, and utility bills. Zero joining fee for new qualified applicants with instant digital KYC.",
+      "ctaText": "Apply Now (Check Eligibility)",
+      "affiliateUrl": "https://example.com/affiliate-credit-card?ref=aifinance",
+      "payoutEstimateUSD": 150,
+      "payoutEstimateINR": 2500,
+      "icon": "credit-card",
+      "tag": "5% Cashback \u2022 Free Airport Lounge"
+    },
+    {
+      "id": "loan_refinance_mortgage",
+      "category": "Loan Prepayment & Refinance",
+      "badge": "Save \u20b910 Lakhs+",
+      "title": "Lowest Rate Home & Personal Loan Balance Transfer",
+      "description": "Transfer your existing high-rate home or personal loan to rates starting at 8.35% p.a. Zero processing fee offers available.",
+      "ctaText": "Check Refinance Rates",
+      "affiliateUrl": "https://example.com/affiliate-loan-refinance?ref=aifinance",
+      "payoutEstimateUSD": 120,
+      "payoutEstimateINR": 3500,
+      "icon": "home",
+      "tag": "Rates from 8.35% \u2022 Save Lakhs"
+    },
+    {
+      "id": "tax_insurance_elss",
+      "category": "Tax Saving (80C / 80D)",
+      "badge": "Tax Season",
+      "title": "Zero-Commission Tax Saver (ELSS + \u20b91 Cr Term Plan)",
+      "description": "Save up to \u20b946,800/year under Section 80C and 80D with top-rated ELSS tax-saver mutual funds and comprehensive term cover.",
+      "ctaText": "Calculate Tax Savings",
+      "affiliateUrl": "https://example.com/affiliate-tax-insurance?ref=aifinance",
+      "payoutEstimateUSD": 80,
+      "payoutEstimateINR": 2000,
+      "icon": "shield",
+      "tag": "Save up to \u20b946,800 in Taxes"
+    },
+    {
+      "id": "gold_bonds_hedging",
+      "category": "Gold & Downside Hedging",
+      "badge": "Safe Haven",
+      "title": "24K 99.9% Digital Gold & High-Yield Asset Backed Bonds",
+      "description": "Protect your stock portfolio against market crashes with 24K digital gold and senior secured bonds paying 9.5% - 11.5% fixed yields.",
+      "ctaText": "Start with $10 / \u20b9100",
+      "affiliateUrl": "https://example.com/affiliate-gold-bonds?ref=aifinance",
+      "payoutEstimateUSD": 45,
+      "payoutEstimateINR": 1200,
+      "icon": "award",
+      "tag": "Govt Backed \u2022 9.5%+ Fixed Yield"
+    }
+  ],
+  "ad_placeholders": {
+    "enabled": true,
+    "top_banner": true,
+    "in_content": true
+  }
+}
