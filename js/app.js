@@ -866,10 +866,11 @@ document.addEventListener('DOMContentLoaded', () => {
         id: "hysa_savings",
         category: "High-Yield Savings",
         badge: "High Priority",
-        title: "High-Yield Cash Reserve (4.5% - 5.1% APY)",
+        title: "High-Yield Cash Reserve (4.5% - 7.5% APY)",
         description: "Standard checking accounts pay 0.01%. Transferring your emergency fund to a top-tier HYSA earns risk-free interest annually with full deposit insurance.",
-        ctaText: "Compare Top 5% APY Accounts",
-        affiliateUrl: "https://example.com/affiliate-hysa?ref=aifinance",
+        ctaText: "Compare Top Savings Rates",
+        affiliateUrl: "https://www.bankrate.com/banking/savings/rates/",
+        affiliateUrlINR: "https://www.paisabazaar.com/savings-account/high-interest-rates/",
         tag: "Zero Risk • High Yield"
       },
       {
@@ -879,7 +880,8 @@ document.addEventListener('DOMContentLoaded', () => {
         title: "Low-Rate Personal Consolidation Loan",
         description: "If your credit card interest is 20-28% APR, consolidating into a single fixed loan at 7-11% APR can slash monthly finance fees and save thousands.",
         ctaText: "Check Pre-Qualified Rates",
-        affiliateUrl: "https://example.com/affiliate-refinance?ref=aifinance",
+        affiliateUrl: "https://www.nerdwallet.com/best/loans/personal-loans/best-debt-consolidation-loans",
+        affiliateUrlINR: "https://www.bankbazaar.com/personal-loan.html",
         tag: "Single-Digit Fixed APR"
       },
       {
@@ -889,7 +891,8 @@ document.addEventListener('DOMContentLoaded', () => {
         title: "Automated Budget & Subscription Tracker",
         description: "Cancel forgotten subscriptions and automatically categorize your monthly expenses with a secure, zero-friction financial dashboard.",
         ctaText: "Get Free Tracker App",
-        affiliateUrl: "https://example.com/affiliate-budget-app?ref=aifinance",
+        affiliateUrl: "https://wallet.budgetbakers.com/",
+        affiliateUrlINR: "https://moneyview.in/money-manager-app",
         tag: "100% Free Plan"
       },
       {
@@ -898,8 +901,9 @@ document.addEventListener('DOMContentLoaded', () => {
         badge: "Long Term",
         title: "Zero-Commission Automated Investing",
         description: "Put your long-term savings to work with fractional shares, index funds, and automatic dividend reinvesting with bonus welcome incentives.",
-        ctaText: "Claim Free Stock & Start",
-        affiliateUrl: "https://example.com/affiliate-brokerage?ref=aifinance",
+        ctaText: "Open Free Demat & Start",
+        affiliateUrl: "https://investor.vanguard.com/",
+        affiliateUrlINR: "https://zerodha.com/open-account",
         tag: "Zero Commission"
       }
     ];
@@ -915,7 +919,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // Fallback works automatically
     }
 
-    container.innerHTML = affiliates.map(item => `
+    const isINR = currentCurrency === '₹' || document.getElementById('currency-select')?.value === 'INR';
+
+    container.innerHTML = affiliates.map(item => {
+      const targetUrl = (isINR && item.affiliateUrlINR) ? item.affiliateUrlINR : item.affiliateUrl;
+      return `
       <div class="glass-card glass-card-interactive p-5 flex flex-col justify-between bg-white border border-slate-200">
         <div>
           <div class="flex items-center justify-between mb-3">
@@ -926,7 +934,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="text-xs text-slate-600 leading-relaxed mb-4">${item.description}</p>
         </div>
         <div>
-          <a href="${item.affiliateUrl}" target="_blank" rel="noopener noreferrer" 
+          <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" 
              class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs tracking-wide transition shadow-sm hover:shadow">
             <span>${item.ctaText}</span>
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
@@ -934,7 +942,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="text-[10px] text-slate-400 text-center mt-2 font-medium">Free to explore • Verified partner</p>
         </div>
       </div>
-    `).join('');
+    `;
+    }).join('');
   }
 
   // Restart & Recalculate

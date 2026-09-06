@@ -594,7 +594,7 @@ class FinanceEngine {
         cashbackRate: '5% Cashback on Amazon, Swiggy, Zomato',
         annualBenefit: '₹' + Math.round(annualCashback * 0.65).toLocaleString(),
         features: ['5% Unlimited Online Cashback', '4 Free Domestic Lounge Visits/yr', 'Zero fee on annual spend waiver'],
-        applyUrl: 'https://example.com/affiliate-card-hdfc?ref=aifinance'
+        applyUrl: 'https://www.hdfcbank.com/personal/pay/cards/millennia-cards/millennia-cc-new'
       },
       {
         name: 'SBI Cashback Credit Card',
@@ -602,7 +602,7 @@ class FinanceEngine {
         cashbackRate: 'Flat 5% on all online merchants',
         annualBenefit: '₹' + Math.round(annualCashback).toLocaleString(),
         features: ['No merchant restrictions', 'Direct statement credit every month', '1% fuel surcharge waiver'],
-        applyUrl: 'https://example.com/affiliate-card-sbi?ref=aifinance'
+        applyUrl: 'https://www.sbicard.com/en/personal/credit-cards/rewards/cashback-sbi-card.page'
       },
       {
         name: 'Axis Bank Airtel / Ace Card',
@@ -610,7 +610,7 @@ class FinanceEngine {
         cashbackRate: '25% on bills, 4% on food deliveries',
         annualBenefit: '₹' + Math.round(annualCashback * 0.45).toLocaleString(),
         features: ['25% on mobile, DTH & broadband', '10% on Swiggy & Zomato', 'Instant approval via digital KYC'],
-        applyUrl: 'https://example.com/affiliate-card-axis?ref=aifinance'
+        applyUrl: 'https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card'
       }
     ] : [
       {
@@ -619,7 +619,7 @@ class FinanceEngine {
         cashbackRate: '5% on Travel, 3% Dining & Drugstores',
         annualBenefit: '$' + Math.round(annualCashback).toLocaleString(),
         features: ['0% Intro APR for 15 months', '$200 Welcome Bonus', 'No annual fee ever'],
-        applyUrl: 'https://example.com/affiliate-card-chase?ref=aifinance'
+        applyUrl: 'https://creditcards.chase.com/cash-back-credit-cards/freedom/unlimited'
       },
       {
         name: 'Capital One SavorOne Cash Rewards',
@@ -627,7 +627,7 @@ class FinanceEngine {
         cashbackRate: '3% Dining, Entertainment & Groceries',
         annualBenefit: '$' + Math.round(annualCashback * 0.85).toLocaleString(),
         features: ['8% on Capital One Entertainment', 'No foreign transaction fees', '$200 cash bonus on signup'],
-        applyUrl: 'https://example.com/affiliate-card-capitalone?ref=aifinance'
+        applyUrl: 'https://www.capitalone.com/credit-cards/savorone-dining-rewards/'
       },
       {
         name: 'Blue Cash Preferred® from Amex',
@@ -635,7 +635,7 @@ class FinanceEngine {
         cashbackRate: '6% at U.S. Supermarkets & Streaming',
         annualBenefit: '$' + Math.round(annualCashback * 1.15).toLocaleString(),
         features: ['6% on up to $6,000/yr in groceries', '3% on Transit & Gas stations', 'Top-tier purchase protection'],
-        applyUrl: 'https://example.com/affiliate-card-amex?ref=aifinance'
+        applyUrl: 'https://www.americanexpress.com/us/credit-cards/card/blue-cash-everyday/'
       }
     ];
 
