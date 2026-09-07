@@ -92,7 +92,7 @@
           </select>
 
           <!-- Modern Custom Trigger Button -->
-          <button type="button" id="currency-dropdown-btn" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-slate-200 hover:border-emerald-500 shadow-sm hover:shadow transition text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500/20">
+          <button type="button" id="currency-dropdown-btn" onclick="toggleCurrencyMenu(event)" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-slate-200 hover:border-emerald-500 shadow-sm hover:shadow transition text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500/20">
             <span id="currency-flag" class="text-sm">🇮🇳</span>
             <span id="currency-label-display">INR (₹)</span>
             <svg class="w-3.5 h-3.5 text-slate-400 transition-transform duration-200" id="currency-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -198,7 +198,7 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
         <!-- Intent Option 1: Live Stock Tracker -->
-        <div id="intent-card-stocks" class="intent-card glass-card p-6 bg-white border-2 border-slate-200 hover:border-emerald-500 cursor-pointer rounded-2xl flex flex-col justify-between group shadow-sm transition">
+        <div id="intent-card-stocks" onclick="setIntent('stocks')" class="intent-card glass-card p-6 bg-white border-2 border-slate-200 hover:border-emerald-500 cursor-pointer rounded-2xl flex flex-col justify-between group shadow-sm transition">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-105 transition-transform">
               📈
@@ -218,7 +218,7 @@
         </div>
 
         <!-- Intent Option 2: Save Money & Budget -->
-        <div id="intent-card-save" class="intent-card glass-card p-6 bg-white border-2 border-slate-200 hover:border-blue-500 cursor-pointer rounded-2xl flex flex-col justify-between group shadow-sm transition">
+        <div id="intent-card-save" onclick="setIntent('save')" class="intent-card glass-card p-6 bg-white border-2 border-slate-200 hover:border-blue-500 cursor-pointer rounded-2xl flex flex-col justify-between group shadow-sm transition">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-105 transition-transform">
               💰
@@ -238,7 +238,7 @@
         </div>
 
         <!-- Intent Option 3: Full AI Wealth Blueprint -->
-        <div id="intent-card-blueprint" class="intent-card active-intent glass-card p-6 bg-white border-2 border-emerald-600 cursor-pointer rounded-2xl flex flex-col justify-between group shadow-sm transition">
+        <div id="intent-card-blueprint" onclick="setIntent('blueprint')" class="intent-card active-intent glass-card p-6 bg-white border-2 border-emerald-600 cursor-pointer rounded-2xl flex flex-col justify-between group shadow-sm transition">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-105 transition-transform">
               🚀
@@ -376,7 +376,7 @@
               Your stock holdings are safely stored in your browser and automatically sync into Step 4 of the Wealth Blueprint.
             </p>
           </div>
-          <button type="button" id="stock-to-budget-cta-btn" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition shrink-0 shadow-sm flex items-center gap-1.5">
+          <button type="button" id="stock-to-budget-cta-btn" onclick="setIntent('blueprint')" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition shrink-0 shadow-sm flex items-center gap-1.5">
             <span>Calculate 50/30/20 Budget & Net Worth →</span>
           </button>
         </div>
@@ -693,7 +693,7 @@
 
                 <!-- Modern Interactive Goal Cards -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="goal-options-grid">
-                  <div class="goal-option-card selected-goal p-3.5 rounded-xl border-2 border-emerald-600 bg-emerald-50/60 flex items-start gap-3 transition cursor-pointer shadow-sm" data-value="Eliminate High-Interest Debt">
+                  <div class="goal-option-card selected-goal p-3.5 rounded-xl border-2 border-emerald-600 bg-emerald-50/60 flex items-start gap-3 transition cursor-pointer shadow-sm" data-value="Eliminate High-Interest Debt" onclick="selectGoalCard(this, 'Eliminate High-Interest Debt')">
                     <div class="w-8 h-8 rounded-lg bg-red-100 text-red-600 flex items-center justify-center text-base shrink-0">🔥</div>
                     <div class="flex-1">
                       <div class="flex items-center justify-between">
@@ -704,7 +704,7 @@
                     </div>
                   </div>
 
-                  <div class="goal-option-card p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-start gap-3 transition cursor-pointer" data-value="Build 6-Month Emergency Fund">
+                  <div class="goal-option-card p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-start gap-3 transition cursor-pointer" data-value="Build 6-Month Emergency Fund" onclick="selectGoalCard(this, 'Build 6-Month Emergency Fund')">
                     <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center text-base shrink-0">🛡️</div>
                     <div class="flex-1">
                       <div class="flex items-center justify-between">
@@ -715,7 +715,7 @@
                     </div>
                   </div>
 
-                  <div class="goal-option-card p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-start gap-3 transition cursor-pointer" data-value="Start Investing & Compound Wealth">
+                  <div class="goal-option-card p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-start gap-3 transition cursor-pointer" data-value="Start Investing & Compound Wealth" onclick="selectGoalCard(this, 'Start Investing & Compound Wealth')">
                     <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center text-base shrink-0">📈</div>
                     <div class="flex-1">
                       <div class="flex items-center justify-between">
@@ -726,7 +726,7 @@
                     </div>
                   </div>
 
-                  <div class="goal-option-card p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-start gap-3 transition cursor-pointer" data-value="Save for House Down Payment">
+                  <div class="goal-option-card p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-start gap-3 transition cursor-pointer" data-value="Save for House Down Payment" onclick="selectGoalCard(this, 'Save for House Down Payment')">
                     <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center text-base shrink-0">🏡</div>
                     <div class="flex-1">
                       <div class="flex items-center justify-between">
@@ -737,7 +737,7 @@
                     </div>
                   </div>
 
-                  <div class="goal-option-card sm:col-span-2 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-start gap-3 transition cursor-pointer" data-value="General Financial Freedom">
+                  <div class="goal-option-card sm:col-span-2 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-start gap-3 transition cursor-pointer" data-value="General Financial Freedom" onclick="selectGoalCard(this, 'General Financial Freedom')">
                     <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center text-base shrink-0">✨</div>
                     <div class="flex-1">
                       <div class="flex items-center justify-between">
@@ -1647,11 +1647,101 @@
     </div>
   </div>
 
-  <!-- Application Scripts -->
-  <script src="js/finance-engine.js"></script>
-  <script src="js/charts.js"></script>
-  <script src="js/stock-tracker.js"></script>
-  <script src="js/ai-advisor.js"></script>
-  <script src="js/app.js"></script>
+  <!-- Core Inline Controller for Instant Interaction -->
+  <script>
+    function setIntent(intent) {
+      const cardStocks = document.getElementById('intent-card-stocks');
+      const cardSave = document.getElementById('intent-card-save');
+      const cardBlueprint = document.getElementById('intent-card-blueprint');
+      const upfrontStock = document.getElementById('upfront-stock-section');
+      const intakeSection = document.getElementById('intake-section');
+      const resultsDashboard = document.getElementById('results-dashboard');
+
+      [cardStocks, cardSave, cardBlueprint].forEach(c => {
+        if (c) {
+          c.classList.remove('active-intent', 'border-emerald-600', 'bg-emerald-50/40');
+          c.classList.add('border-slate-200', 'bg-white');
+        }
+      });
+
+      if (intent === 'stocks') {
+        if (cardStocks) {
+          cardStocks.classList.add('active-intent', 'border-emerald-600', 'bg-emerald-50/40');
+          cardStocks.classList.remove('border-slate-200', 'bg-white');
+        }
+        if (upfrontStock) upfrontStock.classList.remove('hidden');
+        if (intakeSection) intakeSection.classList.add('hidden');
+        if (resultsDashboard) resultsDashboard.classList.add('hidden');
+        upfrontStock?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else if (intent === 'save') {
+        if (cardSave) {
+          cardSave.classList.add('active-intent', 'border-emerald-600', 'bg-emerald-50/40');
+          cardSave.classList.remove('border-slate-200', 'bg-white');
+        }
+        if (upfrontStock) upfrontStock.classList.add('hidden');
+        if (intakeSection) intakeSection.classList.remove('hidden');
+        if (resultsDashboard) resultsDashboard.classList.add('hidden');
+        intakeSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        if (cardBlueprint) {
+          cardBlueprint.classList.add('active-intent', 'border-emerald-600', 'bg-emerald-50/40');
+          cardBlueprint.classList.remove('border-slate-200', 'bg-white');
+        }
+        if (upfrontStock) upfrontStock.classList.add('hidden');
+        if (intakeSection) intakeSection.classList.remove('hidden');
+        if (resultsDashboard) resultsDashboard.classList.add('hidden');
+        intakeSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    window.setIntent = setIntent;
+
+    function toggleCurrencyMenu(e) {
+      if (e) e.stopPropagation();
+      const menu = document.getElementById('currency-dropdown-menu');
+      const chevron = document.getElementById('currency-chevron');
+      if (!menu) return;
+      const isHidden = menu.classList.contains('hidden');
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        chevron?.classList.add('rotate-180');
+      } else {
+        menu.classList.add('hidden');
+        chevron?.classList.remove('rotate-180');
+      }
+    }
+    window.toggleCurrencyMenu = toggleCurrencyMenu;
+
+    function selectGoalCard(card, val) {
+      const primaryGoal = document.getElementById('primary-goal');
+      if (primaryGoal) primaryGoal.value = val;
+      const cards = document.querySelectorAll('.goal-option-card');
+      cards.forEach(c => {
+        c.classList.remove('selected-goal', 'border-emerald-600', 'bg-emerald-50/60', 'border-2', 'shadow-sm');
+        c.classList.add('border-slate-200', 'bg-white', 'border');
+        c.querySelector('.goal-check')?.classList.add('hidden');
+      });
+      card.classList.add('selected-goal', 'border-emerald-600', 'bg-emerald-50/60', 'border-2', 'shadow-sm');
+      card.classList.remove('border-slate-200', 'bg-white', 'border');
+      card.querySelector('.goal-check')?.classList.remove('hidden');
+    }
+    window.selectGoalCard = selectGoalCard;
+
+    document.addEventListener('click', (e) => {
+      const menu = document.getElementById('currency-dropdown-menu');
+      const btn = document.getElementById('currency-dropdown-btn');
+      const chevron = document.getElementById('currency-chevron');
+      if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.add('hidden');
+        chevron?.classList.remove('rotate-180');
+      }
+    });
+  </script>
+
+  <!-- Application Scripts with Cache Busters -->
+  <script src="js/finance-engine.js?v=20260907b"></script>
+  <script src="js/charts.js?v=20260907b"></script>
+  <script src="js/stock-tracker.js?v=20260907b"></script>
+  <script src="js/ai-advisor.js?v=20260907b"></script>
+  <script src="js/app.js?v=20260907b"></script>
 </body>
 </html>
