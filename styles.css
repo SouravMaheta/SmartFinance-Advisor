@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+:root {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --border-card: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --accent-emerald: #059669;
+  --accent-cyan: #0284c7;
+  --accent-indigo: #4f46e5;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .brand-font {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Card utilities - Modern Light Fintech */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.06), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+}
+
+.glass-card-interactive:hover {
+  transform: translateY(-2px);
+  border-color: #10b981;
+  box-shadow: 0 12px 24px -6px rgba(16, 185, 129, 0.12), 0 4px 6px -2px rgba(16, 185, 129, 0.06);
+}
+
+/* Subtle fintech glows */
+.glow-emerald {
+  box-shadow: 0 0 25px -4px rgba(16, 185, 129, 0.2);
+}
+
+.glow-indigo {
+  box-shadow: 0 0 25px -4px rgba(99, 102, 241, 0.2);
+}
+
+/* Gradients optimized for light backgrounds */
+.text-gradient {
+  background: linear-gradient(135deg, #059669 0%, #0284c7 50%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Wizard step transitions */
+.wizard-step {
+  display: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.wizard-step.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Form Input Polish */
+input[type="number"], input[type="text"], select {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+input[type="number"]:focus, input[type="text"]:focus, select:focus {
+  border-color: #059669;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
+  background-color: #ffffff;
+}
+
+/* Remove number spinner arrows for clean look */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Badges for Light Theme */
+.badge-emerald {
+  background-color: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.badge-amber {
+  background-color: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.badge-blue {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.badge-slate {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+/* Soft badge pulse animation */
+@keyframes soft-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+.pulse-badge {
+  animation: soft-pulse 3s infinite ease-in-out;
+}
+
+/* Toast notifications */
+#toast-notification {
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Legal Modals */
+.modal-backdrop {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  background-color: rgba(15, 23, 42, 0.4);
+}
+
+/* Stock Watchlist & Portfolio */
+.stock-ticker-badge {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.suggestion-item:hover {
+  background-color: #f8fafc;
+}
+
+.quick-stock-chip {
+  cursor: pointer;
+  border: 1px solid #e2e8f0;
+}
+
+.quick-stock-chip:hover {
+  background-color: #e2e8f0;
+  border-color: #cbd5e1;
+}
+
+/* Interactive Range Slider Styling */
+input[type="range"] {
+  height: 6px;
+  border-radius: 9999px;
+  background: #e2e8f0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #059669;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+/* Credit Card Card Styles */
+.credit-card-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.credit-card-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+}
+
+/* Upfront Intent Cards */
+.intent-card {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.intent-card:hover {
+  transform: translateY(-3px);
+}
+.intent-card.active-intent {
+  border-color: #059669 !important;
+  box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.15) !important;
+  background: #f0fdf4 !important;
+}
+
+/* Custom Currency Dropdown */
+#currency-dropdown-btn:focus-visible {
+  outline: 2px solid #059669;
+}
+.currency-opt:hover {
+  background-color: #f0fdf4;
+}
+.currency-opt.active-currency {
+  background-color: #ecfdf5;
+  color: #065f46;
+}
+
+/* Goal Card Selector in Step 5 */
+.goal-option-card {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.goal-option-card:hover {
+  border-color: #94a3b8;
+  background-color: #f8fafc;
+}
+.goal-option-card.selected-goal {
+  border-color: #059669 !important;
+  background-color: #f0fdf4 !important;
+  box-shadow: 0 4px 12px -2px rgba(5, 150, 105, 0.12) !important;
+}
+
+/* Affiliate Filter Tabs */
+.affiliate-tab-btn {
+  transition: all 0.15s ease;
+}
+.affiliate-tab-btn.active {
+  background-color: #059669 !important;
+  color: #ffffff !important;
+  border-color: #059669 !important;
+  box-shadow: 0 2px 6px -1px rgba(5, 150, 105, 0.3) !important;
+}
+
+/* Print Stylesheet for 1-Click PDF Export */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  header, nav, #intake-section, #faq-section, footer, .no-print, #toast-notification {
+    display: none !important;
+  }
+
+  #results-dashboard {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .glass-card {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+    color: #0f172a !important;
+    page-break-inside: avoid;
+  }
+
+  .text-gradient, .text-gradient-gold {
+    -webkit-text-fill-color: #0f172a !important;
+    color: #0f172a !important;
+  }
+
+  canvas {
+    max-height: 240px !important;
+  }
+}

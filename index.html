@@ -81,15 +81,66 @@
       <!-- Right Navigation Actions -->
       <div class="flex items-center gap-3 sm:gap-4">
         
-        <!-- Multi-Currency Switcher -->
-        <div class="flex items-center bg-slate-100 border border-slate-200/80 rounded-xl px-2.5 py-1.5 shadow-inner">
-          <label for="currency-select" class="text-xs text-slate-500 mr-1.5 hidden sm:inline font-medium">Currency:</label>
-          <select id="currency-select" class="bg-transparent text-xs font-bold text-slate-800 focus:outline-none cursor-pointer border-none py-0">
-            <option value="USD" selected>USD ($)</option>
-            <option value="INR">INR (₹)</option>
+        <!-- Custom Modern Currency Selector -->
+        <div class="relative" id="custom-currency-wrapper">
+          <!-- Hidden native select for 100% JS backward compatibility -->
+          <select id="currency-select" class="sr-only">
+            <option value="INR" selected>INR (₹)</option>
+            <option value="USD">USD ($)</option>
             <option value="EUR">EUR (€)</option>
             <option value="GBP">GBP (£)</option>
           </select>
+
+          <!-- Modern Custom Trigger Button -->
+          <button type="button" id="currency-dropdown-btn" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-slate-200 hover:border-emerald-500 shadow-sm hover:shadow transition text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500/20">
+            <span id="currency-flag" class="text-sm">🇮🇳</span>
+            <span id="currency-label-display">INR (₹)</span>
+            <svg class="w-3.5 h-3.5 text-slate-400 transition-transform duration-200" id="currency-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+
+          <!-- Floating Dropdown Menu -->
+          <div id="currency-dropdown-menu" class="hidden absolute right-0 top-full mt-1.5 w-44 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-slate-200 py-1.5 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+            <button type="button" class="currency-opt w-full px-3 py-2 text-left text-xs font-semibold hover:bg-emerald-50 flex items-center justify-between text-slate-800 transition active-currency" data-value="INR" data-flag="🇮🇳" data-label="INR (₹)">
+              <div class="flex items-center gap-2">
+                <span class="text-base">🇮🇳</span>
+                <div>
+                  <span class="font-bold block">INR (₹)</span>
+                  <span class="text-[10px] text-slate-400 font-normal">Indian Rupee</span>
+                </div>
+              </div>
+              <span class="currency-check text-emerald-600 font-bold">✓</span>
+            </button>
+            <button type="button" class="currency-opt w-full px-3 py-2 text-left text-xs font-semibold hover:bg-emerald-50 flex items-center justify-between text-slate-800 transition" data-value="USD" data-flag="🇺🇸" data-label="USD ($)">
+              <div class="flex items-center gap-2">
+                <span class="text-base">🇺🇸</span>
+                <div>
+                  <span class="font-bold block">USD ($)</span>
+                  <span class="text-[10px] text-slate-400 font-normal">US Dollar</span>
+                </div>
+              </div>
+              <span class="currency-check hidden text-emerald-600 font-bold">✓</span>
+            </button>
+            <button type="button" class="currency-opt w-full px-3 py-2 text-left text-xs font-semibold hover:bg-emerald-50 flex items-center justify-between text-slate-800 transition" data-value="EUR" data-flag="🇪🇺" data-label="EUR (€)">
+              <div class="flex items-center gap-2">
+                <span class="text-base">🇪🇺</span>
+                <div>
+                  <span class="font-bold block">EUR (€)</span>
+                  <span class="text-[10px] text-slate-400 font-normal">Euro</span>
+                </div>
+              </div>
+              <span class="currency-check hidden text-emerald-600 font-bold">✓</span>
+            </button>
+            <button type="button" class="currency-opt w-full px-3 py-2 text-left text-xs font-semibold hover:bg-emerald-50 flex items-center justify-between text-slate-800 transition" data-value="GBP" data-flag="🇬🇧" data-label="GBP (£)">
+              <div class="flex items-center gap-2">
+                <span class="text-base">🇬🇧</span>
+                <div>
+                  <span class="font-bold block">GBP (£)</span>
+                  <span class="text-[10px] text-slate-400 font-normal">British Pound</span>
+                </div>
+              </div>
+              <span class="currency-check hidden text-emerald-600 font-bold">✓</span>
+            </button>
+          </div>
         </div>
 
         <!-- Jump to Assessment CTA -->
@@ -133,6 +184,201 @@
         <div class="flex items-center gap-1.5">
           <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           <span>Private Client-Side Math</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upfront User Intent Selector (Choose Mode) -->
+    <section id="intent-selector-section" class="max-w-7xl mx-auto mb-10 px-4 sm:px-0">
+      <div class="text-center max-w-2xl mx-auto mb-6">
+        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">What would you like to do?</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Choose Your Financial Priority</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1.5">Pick what you want to achieve today. Track live Indian/US stocks with zero questions, or run your 50/30/20 budget.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+        <!-- Intent Option 1: Live Stock Tracker -->
+        <div id="intent-card-stocks" class="intent-card glass-card p-6 bg-white border-2 border-slate-200 hover:border-emerald-500 cursor-pointer rounded-2xl flex flex-col justify-between group shadow-sm transition">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-105 transition-transform">
+              📈
+            </div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <h3 class="text-base font-bold text-slate-900">Track Stocks & Portfolio</h3>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Live Quotes</span>
+            </div>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Monitor Indian (NSE/BSE) & US stocks with live prices, P&L, and returns. <strong>Zero income/salary questions required!</strong>
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-emerald-600">
+            <span>Launch Stock Tracker</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <!-- Intent Option 2: Save Money & Budget -->
+        <div id="intent-card-save" class="intent-card glass-card p-6 bg-white border-2 border-slate-200 hover:border-blue-500 cursor-pointer rounded-2xl flex flex-col justify-between group shadow-sm transition">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-105 transition-transform">
+              💰
+            </div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <h3 class="text-base font-bold text-slate-900">Save Money & Budget</h3>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">50/30/20 Rule</span>
+            </div>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Find hidden cash leaks, optimize spending into Needs vs. Wants, and calculate your exact monthly savings surplus.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-blue-600">
+            <span>Plan My Savings</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <!-- Intent Option 3: Full AI Wealth Blueprint -->
+        <div id="intent-card-blueprint" class="intent-card active-intent glass-card p-6 bg-white border-2 border-emerald-600 cursor-pointer rounded-2xl flex flex-col justify-between group shadow-sm transition">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-105 transition-transform">
+              🚀
+            </div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <h3 class="text-base font-bold text-slate-900">Full AI Wealth Blueprint</h3>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">Complete</span>
+            </div>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              All-in-one financial health audit: Net Worth, debt freedom timeline, emergency runway, and 30-day tactical roadmap.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900">
+            <span>Start Full Assessment</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upfront Dedicated Stock Workstation Section -->
+    <section id="upfront-stock-section" class="max-w-7xl mx-auto mb-16 px-4 sm:px-0 hidden">
+      <div id="live-stock-tracker-section" class="glass-card p-6 bg-white border border-slate-200 shadow-sm space-y-5 rounded-2xl">
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-100">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <h3 class="text-lg font-bold text-slate-900">Live Stock Watchlist & Portfolio</h3>
+              <span id="stock-count-badge" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold">0 Holdings</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Track real-time market value & P&L for Indian (NSE/BSE) and US equities. 100% private in browser — zero login, zero OTP.</p>
+          </div>
+
+          <div class="flex items-center gap-2 no-print">
+            <span id="quotes-last-updated" class="text-[10px] text-slate-400 font-medium hidden sm:inline-block">Quotes Active</span>
+            <button type="button" id="refresh-quotes-btn" class="px-3 py-1.5 rounded-xl border border-slate-200 hover:border-slate-300 text-slate-700 text-xs font-semibold transition bg-slate-50 flex items-center gap-1.5 shadow-sm" title="Refresh Live Market Quotes">
+              <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              <span>Refresh</span>
+            </button>
+            <button type="button" id="open-add-stock-modal-btn" class="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              <span>+ Add Stock</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Stock Summary Stats Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50/70 p-3.5 rounded-xl border border-slate-100">
+          <div>
+            <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Total Cost Basis</span>
+            <span id="stock-total-invested" class="text-base font-bold text-slate-900">$0</span>
+          </div>
+          <div>
+            <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Current Valuation</span>
+            <span id="stock-current-value" class="text-base font-bold text-slate-900">$0</span>
+          </div>
+          <div>
+            <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Total Return (P&L)</span>
+            <div class="flex items-center gap-1.5">
+              <span id="stock-total-pnl" class="text-base font-extrabold text-slate-900">$0</span>
+              <span id="stock-pnl-badge" class="text-[10px] px-1.5 py-0.5 rounded font-bold bg-slate-100 text-slate-500">0.0%</span>
+            </div>
+          </div>
+          <div>
+            <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Today's Movement</span>
+            <div id="stock-day-change" class="text-xs font-semibold text-slate-600 mt-1">
+              $0 (0.0%)
+            </div>
+          </div>
+        </div>
+
+        <!-- Empty State (No Stocks Added) -->
+        <div id="stock-empty-state" class="text-center py-8 px-4 border border-dashed border-slate-200 rounded-xl bg-slate-50/50">
+          <div class="w-10 h-10 mx-auto mb-2.5 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <h4 class="text-sm font-bold text-slate-800 mb-1">Track Live Stocks Anonymously</h4>
+          <p class="text-xs text-slate-500 max-w-sm mx-auto mb-4">Add your shares in Indian (NSE/BSE) or US companies. Track daily gains and total profits with zero login and zero OTP required.</p>
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <button type="button" class="open-add-stock-btn px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition shadow-sm">
+              + Add Your First Stock
+            </button>
+            <button type="button" class="load-sample-stocks-btn px-4 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-800 text-xs font-bold transition">
+              ⚡ Load Sample Portfolio (Reliance, TCS, Apple)
+            </button>
+          </div>
+        </div>
+
+        <!-- Table Wrapper (Populated State) -->
+        <div id="stock-table-wrapper" class="hidden overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="border-b border-slate-200 text-slate-400 uppercase tracking-wider text-[10px] font-bold">
+                <th class="py-2 px-4">Stock & Exchange</th>
+                <th class="py-2 px-3 text-right">Shares & Cost</th>
+                <th class="py-2 px-3 text-right">Live Price</th>
+                <th class="py-2 px-3 text-right">Total Value</th>
+                <th class="py-2 px-3 text-right">Profit / Loss</th>
+                <th class="py-2 px-2 text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody id="stock-portfolio-tbody">
+              <!-- Dynamically populated by stock-tracker.js -->
+            </tbody>
+          </table>
+
+          <div class="flex items-center justify-between pt-3 text-[11px] text-slate-400 no-print">
+            <button type="button" id="clear-stocks-btn" class="hover:text-red-600 transition font-medium">Clear All Holdings</button>
+            <button type="button" class="load-sample-stocks-btn hover:text-slate-600 transition">Reload Blue-Chip Sample</button>
+          </div>
+        </div>
+
+        <!-- Contextual Demat / Zero Brokerage CTA -->
+        <div class="p-3.5 bg-gradient-to-r from-blue-50/70 to-emerald-50/70 border border-blue-100 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 no-print">
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-700 flex items-center justify-center font-bold text-xs shrink-0">₹0</div>
+            <div>
+              <span class="text-xs font-bold text-slate-900 block">Invest with ₹0 Delivery Brokerage</span>
+              <span class="text-[10px] text-slate-500">Open a paperless Demat account in 5 minutes with top-rated brokers.</span>
+            </div>
+          </div>
+          <a href="https://zerodha.com/open-account" target="_blank" rel="noopener sponsored" class="px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-[11px] font-bold transition shrink-0">
+            Compare Top Brokers →
+          </a>
+        </div>
+
+        <!-- Upfront Conversion Bridge to Budget & Net Worth -->
+        <div class="mt-4 p-5 bg-gradient-to-r from-emerald-50 via-teal-50 to-cyan-50 border border-emerald-200 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="space-y-1 text-left">
+            <div class="flex items-center gap-2">
+              <span class="text-base">💡</span>
+              <h4 class="text-sm font-bold text-emerald-950">Factor these stocks into your 50/30/20 Budget & Net Worth?</h4>
+            </div>
+            <p class="text-xs text-emerald-800">
+              Your stock holdings are safely stored in your browser and automatically sync into Step 4 of the Wealth Blueprint.
+            </p>
+          </div>
+          <button type="button" id="stock-to-budget-cta-btn" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition shrink-0 shadow-sm flex items-center gap-1.5">
+            <span>Calculate 50/30/20 Budget & Net Worth →</span>
+          </button>
         </div>
       </div>
     </section>
@@ -434,14 +680,74 @@
 
             <div class="space-y-4">
               <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1.5">Primary Target Milestone</label>
-                <select id="primary-goal" class="w-full px-4 py-2.5 rounded-xl text-sm bg-white border border-slate-300 text-slate-900">
-                  <option value="Eliminate High-Interest Debt">🔥 Crush High-Interest Debt (Fastest Payoff)</option>
-                  <option value="Build 6-Month Emergency Fund">🛡️ Build a 6-Month Emergency Safety Net</option>
-                  <option value="Start Investing & Compound Wealth">📈 Maximize Stock & Mutual Fund Growth</option>
-                  <option value="Save for House Down Payment">🏡 Save for a Home / Major Purchase</option>
-                  <option value="General Financial Freedom">✨ General Budget Cleanup & Wealth Acceleration</option>
+                <label class="block text-xs font-semibold text-slate-700 mb-2">Select Your Primary Target Milestone</label>
+                
+                <!-- Hidden native select for 100% JS backward compatibility -->
+                <select id="primary-goal" class="sr-only">
+                  <option value="Eliminate High-Interest Debt" selected>Eliminate High-Interest Debt</option>
+                  <option value="Build 6-Month Emergency Fund">Build 6-Month Emergency Fund</option>
+                  <option value="Start Investing & Compound Wealth">Start Investing & Compound Wealth</option>
+                  <option value="Save for House Down Payment">Save for House Down Payment</option>
+                  <option value="General Financial Freedom">General Financial Freedom</option>
                 </select>
+
+                <!-- Modern Interactive Goal Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="goal-options-grid">
+                  <div class="goal-option-card selected-goal p-3.5 rounded-xl border-2 border-emerald-600 bg-emerald-50/60 flex items-start gap-3 transition cursor-pointer shadow-sm" data-value="Eliminate High-Interest Debt">
+                    <div class="w-8 h-8 rounded-lg bg-red-100 text-red-600 flex items-center justify-center text-base shrink-0">🔥</div>
+                    <div class="flex-1">
+                      <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-900">Crush High-Interest Debt</span>
+                        <span class="goal-check text-emerald-600 font-bold text-xs">✓</span>
+                      </div>
+                      <p class="text-[11px] text-slate-500 mt-0.5">Avalanche & Snowball strategies to wipe out loans fast.</p>
+                    </div>
+                  </div>
+
+                  <div class="goal-option-card p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-start gap-3 transition cursor-pointer" data-value="Build 6-Month Emergency Fund">
+                    <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center text-base shrink-0">🛡️</div>
+                    <div class="flex-1">
+                      <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-900">Build 6-Month Safety Net</span>
+                        <span class="goal-check hidden text-emerald-600 font-bold text-xs">✓</span>
+                      </div>
+                      <p class="text-[11px] text-slate-500 mt-0.5">Automate liquid runway in high-yield cash reserves.</p>
+                    </div>
+                  </div>
+
+                  <div class="goal-option-card p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-start gap-3 transition cursor-pointer" data-value="Start Investing & Compound Wealth">
+                    <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center text-base shrink-0">📈</div>
+                    <div class="flex-1">
+                      <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-900">Maximize Compounding</span>
+                        <span class="goal-check hidden text-emerald-600 font-bold text-xs">✓</span>
+                      </div>
+                      <p class="text-[11px] text-slate-500 mt-0.5">Scale equities, SIPs, and index funds for long-term growth.</p>
+                    </div>
+                  </div>
+
+                  <div class="goal-option-card p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-start gap-3 transition cursor-pointer" data-value="Save for House Down Payment">
+                    <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center text-base shrink-0">🏡</div>
+                    <div class="flex-1">
+                      <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-900">Save for Home / Major Asset</span>
+                        <span class="goal-check hidden text-emerald-600 font-bold text-xs">✓</span>
+                      </div>
+                      <p class="text-[11px] text-slate-500 mt-0.5">Fixed-income & safe capital accumulation milestone.</p>
+                    </div>
+                  </div>
+
+                  <div class="goal-option-card sm:col-span-2 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-start gap-3 transition cursor-pointer" data-value="General Financial Freedom">
+                    <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center text-base shrink-0">✨</div>
+                    <div class="flex-1">
+                      <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-900">General Freedom & Budget Cleanup</span>
+                        <span class="goal-check hidden text-emerald-600 font-bold text-xs">✓</span>
+                      </div>
+                      <p class="text-[11px] text-slate-500 mt-0.5">50/30/20 balanced cashflow optimization and ending money stress.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600 leading-relaxed">
@@ -711,154 +1017,51 @@
         </div>
       </div>
 
-      <!-- Live Stock Portfolio & Watchlist (100% Anonymous, Zero-OTP) -->
-      <div id="live-stock-tracker-section" class="glass-card p-6 bg-white border border-slate-200 shadow-sm space-y-5">
-        <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-100">
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <h3 class="text-lg font-bold text-slate-900">Live Stock Watchlist & Portfolio</h3>
-              <span id="stock-count-badge" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold">0 Holdings</span>
-            </div>
-            <p class="text-xs text-slate-500 mt-0.5">Track real-time market value & P&L. 100% private in browser — zero login, zero OTP.</p>
-          </div>
-
-          <div class="flex items-center gap-2 no-print">
-            <span id="quotes-last-updated" class="text-[10px] text-slate-400 font-medium hidden sm:inline-block">Quotes Active</span>
-            <button type="button" id="refresh-quotes-btn" class="px-3 py-1.5 rounded-xl border border-slate-200 hover:border-slate-300 text-slate-700 text-xs font-semibold transition bg-slate-50 flex items-center gap-1.5 shadow-sm" title="Refresh Live Market Quotes">
-              <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-              <span>Refresh</span>
-            </button>
-            <button type="button" id="open-add-stock-modal-btn" class="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-              <span>+ Add Stock</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Stock Summary Stats Grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50/70 p-3.5 rounded-xl border border-slate-100">
-          <div>
-            <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Total Cost Basis</span>
-            <span id="stock-total-invested" class="text-base font-bold text-slate-900">$0</span>
-          </div>
-          <div>
-            <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Current Valuation</span>
-            <span id="stock-current-value" class="text-base font-bold text-slate-900">$0</span>
-          </div>
-          <div>
-            <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Total Return (P&L)</span>
-            <div class="flex items-center gap-1.5">
-              <span id="stock-total-pnl" class="text-base font-extrabold text-slate-900">$0</span>
-              <span id="stock-pnl-badge" class="text-[10px] px-1.5 py-0.5 rounded font-bold bg-slate-100 text-slate-500">0.0%</span>
-            </div>
-          </div>
-          <div>
-            <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Today's Movement</span>
-            <div id="stock-day-change" class="text-xs font-semibold text-slate-600 mt-1">
-              $0 (0.0%)
-            </div>
-          </div>
-        </div>
-
-        <!-- Empty State (No Stocks Added) -->
-        <div id="stock-empty-state" class="text-center py-8 px-4 border border-dashed border-slate-200 rounded-xl bg-slate-50/50">
-          <div class="w-10 h-10 mx-auto mb-2.5 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-          </div>
-          <h4 class="text-sm font-bold text-slate-800 mb-1">Track Live Stocks Anonymously</h4>
-          <p class="text-xs text-slate-500 max-w-sm mx-auto mb-4">Add your shares in Indian (NSE/BSE) or US companies. Track daily gains and total profits with zero login and zero OTP required.</p>
-          <div class="flex flex-wrap items-center justify-center gap-3">
-            <button type="button" class="open-add-stock-btn px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition shadow-sm">
-              + Add Your First Stock
-            </button>
-            <button type="button" class="load-sample-stocks-btn px-4 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-800 text-xs font-bold transition">
-              ⚡ Load Sample Portfolio (Reliance, TCS, Apple)
-            </button>
-          </div>
-        </div>
-
-        <!-- Table Wrapper (Populated State) -->
-        <div id="stock-table-wrapper" class="hidden overflow-x-auto">
-          <table class="w-full text-left text-xs">
-            <thead>
-              <tr class="border-b border-slate-200 text-slate-400 uppercase tracking-wider text-[10px] font-bold">
-                <th class="py-2 px-4">Stock & Exchange</th>
-                <th class="py-2 px-3 text-right">Shares & Cost</th>
-                <th class="py-2 px-3 text-right">Live Price</th>
-                <th class="py-2 px-3 text-right">Total Value</th>
-                <th class="py-2 px-3 text-right">Profit / Loss</th>
-                <th class="py-2 px-2 text-center">Action</th>
-              </tr>
-            </thead>
-            <tbody id="stock-portfolio-tbody">
-              <!-- Dynamically populated by stock-tracker.js -->
-            </tbody>
-          </table>
-
-          <div class="flex items-center justify-between pt-3 text-[11px] text-slate-400 no-print">
-            <button type="button" id="clear-stocks-btn" class="hover:text-red-600 transition font-medium">Clear All Holdings</button>
-            <button type="button" class="load-sample-stocks-btn hover:text-slate-600 transition">Reload Blue-Chip Sample</button>
-          </div>
-        </div>
-
-        <!-- AI Portfolio Doctor & Risk Diagnostic Card -->
-        <div id="portfolio-doctor-card" class="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-            <div class="flex items-center gap-2">
-              <span class="text-sm">🏥</span>
-              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900">AI Portfolio Doctor & Risk Diagnostic</h4>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="text-xs text-slate-500 font-medium">Diversification Grade:</span>
-              <span id="port-doctor-grade" class="px-2.5 py-0.5 rounded-full font-bold text-xs bg-emerald-100 text-emerald-800">A</span>
-            </div>
-          </div>
-
-          <!-- Asset Allocation Visual Bar -->
-          <div class="mb-3">
-            <div class="flex items-center justify-between text-[11px] text-slate-500 mb-1 font-medium">
-              <span>Asset Allocation Breakdown</span>
-              <span id="port-doctor-risk-label" class="font-bold text-emerald-600">Balanced Exposure</span>
-            </div>
-            <div class="w-full h-3 bg-slate-200 rounded-full overflow-hidden flex" id="port-doctor-bar">
-              <div id="bar-stocks" class="bg-blue-600 h-full" style="width: 25%;" title="Stocks"></div>
-              <div id="bar-funds" class="bg-emerald-500 h-full" style="width: 40%;" title="Mutual Funds"></div>
-              <div id="bar-cash" class="bg-amber-400 h-full" style="width: 20%;" title="Liquid Cash"></div>
-              <div id="bar-retirement" class="bg-indigo-500 h-full" style="width: 15%;" title="Retirement"></div>
-            </div>
-            <div class="flex flex-wrap gap-3 mt-1.5 text-[10px] text-slate-500">
-              <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Stocks (<span id="pct-stocks">0%</span>)</span>
-              <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Mutual Funds (<span id="pct-funds">0%</span>)</span>
-              <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-400"></span> Cash Buffer (<span id="pct-cash">0%</span>)</span>
-              <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-indigo-500"></span> Retirement (<span id="pct-retirement">0%</span>)</span>
-            </div>
-          </div>
-
-          <div id="port-doctor-findings" class="space-y-1.5 text-xs text-slate-600 bg-white p-3 rounded-lg border border-slate-200 mb-3">
-            <!-- Findings populated by JS -->
-          </div>
-
-          <!-- Downside Hedging CTA -->
-          <div class="flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-lg bg-amber-50 border border-amber-200 text-xs">
-            <span class="text-amber-900 font-medium">💡 Protect downside: Add 10% Sovereign Gold or Fixed-Income Bonds to guard against market crashes.</span>
-            <a href="https://www.wintwealth.com/" target="_blank" rel="noopener sponsored" class="px-3 py-1 rounded bg-amber-700 hover:bg-amber-800 text-white font-bold text-[11px] transition">
-              Explore Gold & Bonds →
-            </a>
-          </div>
-        </div>
-
-        <!-- Contextual Demat / Zero Brokerage CTA -->
-        <div class="p-3.5 bg-gradient-to-r from-blue-50/70 to-emerald-50/70 border border-blue-100 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 no-print">
-          <div class="flex items-center gap-2.5">
-            <div class="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-700 flex items-center justify-center font-bold text-xs shrink-0">₹0</div>
+      <!-- AI Portfolio Doctor & Risk Diagnostic Card -->
+      <div id="portfolio-doctor-card" class="glass-card p-6 bg-white border border-slate-200 shadow-sm space-y-4 rounded-2xl">
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-100">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">🏥</span>
             <div>
-              <span class="text-xs font-bold text-slate-900 block">Invest with ₹0 Delivery Brokerage</span>
-              <span class="text-[10px] text-slate-500">Open a paperless Demat account in 5 minutes with top-rated brokers.</span>
+              <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900">AI Portfolio Doctor & Diversification Diagnostic</h4>
+              <p class="text-xs text-slate-500">Algorithmic risk evaluation across your equities, mutual funds, liquid cash & retirement</p>
             </div>
           </div>
-          <a href="https://zerodha.com/open-account" target="_blank" rel="noopener sponsored" class="px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-[11px] font-bold transition shrink-0">
-            Compare Top Brokers →
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-slate-500 font-medium">Diversification Grade:</span>
+            <span id="port-doctor-grade" class="px-2.5 py-0.5 rounded-full font-bold text-xs bg-emerald-100 text-emerald-800">A</span>
+          </div>
+        </div>
+
+        <!-- Asset Allocation Visual Bar -->
+        <div class="mb-3">
+          <div class="flex items-center justify-between text-[11px] text-slate-500 mb-1 font-medium">
+            <span>Asset Allocation Breakdown</span>
+            <span id="port-doctor-risk-label" class="font-bold text-emerald-600">Balanced Exposure</span>
+          </div>
+          <div class="w-full h-3 bg-slate-200 rounded-full overflow-hidden flex" id="port-doctor-bar">
+            <div id="bar-stocks" class="bg-blue-600 h-full" style="width: 25%;" title="Stocks"></div>
+            <div id="bar-funds" class="bg-emerald-500 h-full" style="width: 40%;" title="Mutual Funds"></div>
+            <div id="bar-cash" class="bg-amber-400 h-full" style="width: 20%;" title="Liquid Cash"></div>
+            <div id="bar-retirement" class="bg-indigo-500 h-full" style="width: 15%;" title="Retirement"></div>
+          </div>
+          <div class="flex flex-wrap gap-3 mt-1.5 text-[10px] text-slate-500">
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Stocks (<span id="pct-stocks">0%</span>)</span>
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Mutual Funds (<span id="pct-funds">0%</span>)</span>
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-400"></span> Cash Buffer (<span id="pct-cash">0%</span>)</span>
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-indigo-500"></span> Retirement (<span id="pct-retirement">0%</span>)</span>
+          </div>
+        </div>
+
+        <div id="port-doctor-findings" class="space-y-1.5 text-xs text-slate-600 bg-slate-50 p-3.5 rounded-xl border border-slate-200 mb-3">
+          <!-- Findings populated by JS -->
+        </div>
+
+        <!-- Downside Hedging CTA -->
+        <div class="flex flex-wrap items-center justify-between gap-2 p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs">
+          <span class="text-amber-900 font-medium">💡 Protect downside: Add 10% Sovereign Gold or Fixed-Income Bonds to guard against market crashes.</span>
+          <a href="https://www.wintwealth.com/" target="_blank" rel="noopener sponsored" class="px-3.5 py-1.5 rounded-lg bg-amber-700 hover:bg-amber-800 text-white font-bold text-[11px] transition">
+            Explore Gold & Bonds →
           </a>
         </div>
       </div>
@@ -1195,15 +1398,41 @@
       </div>
 
       <!-- MONETIZATION / PARTNER RECOMMENDATION CARDS (Affiliate Blocks) -->
-      <div class="pt-8 border-t border-slate-200">
+      <div class="pt-8 border-t border-slate-200" id="affiliates-section">
         <div class="text-center max-w-xl mx-auto mb-6">
-          <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Zero-Fee Recommended Tools</span>
+          <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Verified Zero-Fee Financial Tools</span>
           <h3 class="text-xl font-bold text-slate-900 mt-1">Accelerate Your Financial Blueprint</h3>
-          <p class="text-xs text-slate-500 mt-1">Hand-picked, highly-rated platforms to help execute your plan with zero upfront costs.</p>
+          <p class="text-xs text-slate-500 mt-1">Hand-picked, highly-rated platforms with exclusive signup bonuses to help execute your plan.</p>
+        </div>
+
+        <!-- Clean Category Filter Tabs -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-6" id="affiliate-category-tabs">
+          <button type="button" class="affiliate-tab-btn active px-3.5 py-1.5 rounded-full text-xs font-bold border border-slate-200 bg-slate-900 text-white shadow-sm" data-category="ALL">
+            All Deals (<span id="aff-cnt-all">28</span>)
+          </button>
+          <button type="button" class="affiliate-tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold border border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-category="Credit Cards">
+            💳 Credit Cards (<span id="aff-cnt-cards">23</span>)
+          </button>
+          <button type="button" class="affiliate-tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold border border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-category="Banking">
+            🏦 Banking & Loans (<span id="aff-cnt-banking">2</span>)
+          </button>
+          <button type="button" class="affiliate-tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold border border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-category="Investing">
+            📈 Investing & Demat (<span id="aff-cnt-investing">1</span>)
+          </button>
+          <button type="button" class="affiliate-tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold border border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-category="Tax & Gold">
+            🛡️ Tax & Gold (<span id="aff-cnt-tax">2</span>)
+          </button>
         </div>
 
         <div id="affiliates-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <!-- Populated dynamically from affiliates-config.json -->
+        </div>
+
+        <!-- Declutter Toggle: Show All / Show Fewer -->
+        <div class="text-center mt-6">
+          <button type="button" id="toggle-affiliates-btn" class="px-5 py-2.5 rounded-xl border border-slate-300 hover:border-slate-400 bg-white text-slate-700 text-xs font-bold transition shadow-sm inline-flex items-center gap-1.5">
+            <span id="toggle-affiliates-text">Show All 28 Partner Offers ↓</span>
+          </button>
         </div>
       </div>
 
@@ -1341,15 +1570,36 @@
         <!-- Quick Pick Popular Chips -->
         <div>
           <label class="block text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Popular Stocks (Click to Auto-fill)</label>
-          <div class="flex flex-wrap gap-1.5">
-            <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="RELIANCE">RELIANCE</button>
-            <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="TCS">TCS</button>
-            <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="HDFCBANK">HDFCBANK</button>
-            <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="INFY">INFY</button>
-            <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="TATAMOTORS">TATAMOTORS</button>
-            <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="AAPL">AAPL</button>
-            <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="NVDA">NVDA</button>
-            <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="MSFT">MSFT</button>
+          <div class="space-y-2">
+            <div>
+              <span class="text-[10px] text-slate-400 font-semibold block mb-1">Top Indian NSE Stocks:</span>
+              <div class="flex flex-wrap gap-1.5">
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="RELIANCE">RELIANCE</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="TCS">TCS</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="HDFCBANK">HDFCBANK</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="INFY">INFY</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="TATAMOTORS">TATAMOTORS</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="ITC">ITC</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="SBIN">SBIN</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold transition border border-emerald-200" data-symbol="ZOMATO">ZOMATO</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold transition border border-emerald-200" data-symbol="TRENT">TRENT</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="TATAPOWER">TATAPOWER</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="HAL">HAL</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="SUZLON">SUZLON</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="IREDA">IREDA</button>
+              </div>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400 font-semibold block mb-1">US & Global Blue-Chips:</span>
+              <div class="flex flex-wrap gap-1.5">
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="AAPL">AAPL</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="NVDA">NVDA</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="MSFT">MSFT</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="GOOGL">GOOGL</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="AMZN">AMZN</button>
+                <button type="button" class="quick-stock-chip text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition" data-symbol="TSLA">TSLA</button>
+              </div>
+            </div>
           </div>
         </div>
 

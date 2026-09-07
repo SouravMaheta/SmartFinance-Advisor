@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize
   updateCurrency(currencySelect.value);
   updateWizardUI();
+  renderAffiliateCards();
 
   // Toast Notification Helper
   function showToast(message, type = 'error') {
@@ -78,6 +79,138 @@ document.addEventListener('DOMContentLoaded', () => {
   // Currency Switcher Event
   currencySelect.addEventListener('change', (e) => {
     updateCurrency(e.target.value);
+  });
+
+  // Custom Modern Currency Dropdown Component
+  const currencyBtn = document.getElementById('currency-dropdown-btn');
+  const currencyMenu = document.getElementById('currency-dropdown-menu');
+  const currencyChevron = document.getElementById('currency-chevron');
+  const currencyDisplay = document.getElementById('currency-label-display');
+  const currencyFlag = document.getElementById('currency-flag');
+  const currencyOptions = document.querySelectorAll('.currency-opt');
+
+  if (currencyBtn && currencyMenu) {
+    currencyBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isHidden = currencyMenu.classList.contains('hidden');
+      if (isHidden) {
+        currencyMenu.classList.remove('hidden');
+        currencyChevron?.classList.add('rotate-180');
+      } else {
+        currencyMenu.classList.add('hidden');
+        currencyChevron?.classList.remove('rotate-180');
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!currencyMenu.contains(e.target) && !currencyBtn.contains(e.target)) {
+        currencyMenu.classList.add('hidden');
+        currencyChevron?.classList.remove('rotate-180');
+      }
+    });
+
+    currencyOptions.forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const val = opt.getAttribute('data-value');
+        const flag = opt.getAttribute('data-flag');
+        const label = opt.getAttribute('data-label');
+
+        if (currencyDisplay) currencyDisplay.textContent = label;
+        if (currencyFlag) currencyFlag.textContent = flag;
+        if (currencySelect) {
+          currencySelect.value = val;
+          currencySelect.dispatchEvent(new Event('change'));
+        }
+
+        currencyOptions.forEach(o => {
+          o.classList.remove('active-currency');
+          o.querySelector('.currency-check')?.classList.add('hidden');
+        });
+        opt.classList.add('active-currency');
+        opt.querySelector('.currency-check')?.classList.remove('hidden');
+
+        currencyMenu.classList.add('hidden');
+        currencyChevron?.classList.remove('rotate-180');
+      });
+    });
+  }
+
+  // Upfront Intent Switcher Controller (Track Stocks vs Save Money vs Full Blueprint)
+  const intentCardStocks = document.getElementById('intent-card-stocks');
+  const intentCardSave = document.getElementById('intent-card-save');
+  const intentCardBlueprint = document.getElementById('intent-card-blueprint');
+  const upfrontStockSection = document.getElementById('upfront-stock-section');
+  const stockToBudgetBtn = document.getElementById('stock-to-budget-cta-btn');
+
+  function setIntent(intent) {
+    const cards = [intentCardStocks, intentCardSave, intentCardBlueprint];
+    cards.forEach(c => {
+      if (c) {
+        c.classList.remove('active-intent', 'border-emerald-600', 'bg-emerald-50/40');
+        c.classList.add('border-slate-200', 'bg-white');
+      }
+    });
+
+    if (intent === 'stocks') {
+      if (intentCardStocks) {
+        intentCardStocks.classList.add('active-intent', 'border-emerald-600', 'bg-emerald-50/40');
+        intentCardStocks.classList.remove('border-slate-200', 'bg-white');
+      }
+      if (upfrontStockSection) upfrontStockSection.classList.remove('hidden');
+      if (intakeSection) intakeSection.classList.add('hidden');
+      if (resultsDashboard) resultsDashboard.classList.add('hidden');
+      upfrontStockSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (intent === 'save') {
+      if (intentCardSave) {
+        intentCardSave.classList.add('active-intent', 'border-emerald-600', 'bg-emerald-50/40');
+        intentCardSave.classList.remove('border-slate-200', 'bg-white');
+      }
+      if (upfrontStockSection) upfrontStockSection.classList.add('hidden');
+      if (intakeSection) intakeSection.classList.remove('hidden');
+      if (resultsDashboard) resultsDashboard.classList.add('hidden');
+      currentStep = 1;
+      updateWizardUI();
+      intakeSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      // Full AI Blueprint
+      if (intentCardBlueprint) {
+        intentCardBlueprint.classList.add('active-intent', 'border-emerald-600', 'bg-emerald-50/40');
+        intentCardBlueprint.classList.remove('border-slate-200', 'bg-white');
+      }
+      if (upfrontStockSection) upfrontStockSection.classList.add('hidden');
+      if (intakeSection) intakeSection.classList.remove('hidden');
+      if (resultsDashboard) resultsDashboard.classList.add('hidden');
+      currentStep = 1;
+      updateWizardUI();
+      intakeSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  if (intentCardStocks) intentCardStocks.addEventListener('click', () => setIntent('stocks'));
+  if (intentCardSave) intentCardSave.addEventListener('click', () => setIntent('save'));
+  if (intentCardBlueprint) intentCardBlueprint.addEventListener('click', () => setIntent('blueprint'));
+  if (stockToBudgetBtn) stockToBudgetBtn.addEventListener('click', () => setIntent('blueprint'));
+
+  // Step 5 Interactive Goal Selection Cards
+  const goalCards = document.querySelectorAll('.goal-option-card');
+  const primaryGoalSelect = document.getElementById('primary-goal');
+
+  goalCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const val = card.getAttribute('data-value');
+      if (primaryGoalSelect) {
+        primaryGoalSelect.value = val;
+      }
+      goalCards.forEach(c => {
+        c.classList.remove('selected-goal', 'border-emerald-600', 'bg-emerald-50/60', 'border-2', 'shadow-sm');
+        c.classList.add('border-slate-200', 'bg-white', 'border');
+        c.querySelector('.goal-check')?.classList.add('hidden');
+      });
+      card.classList.add('selected-goal', 'border-emerald-600', 'bg-emerald-50/60', 'border-2', 'shadow-sm');
+      card.classList.remove('border-slate-200', 'bg-white', 'border');
+      card.querySelector('.goal-check')?.classList.remove('hidden');
+    });
   });
 
   function updateCurrency(currencyCode) {
@@ -314,9 +447,10 @@ document.addEventListener('DOMContentLoaded', () => {
       // Render Results into Dashboard
       populateDashboard(calculationResults);
 
-      // Hide Loading, Show Dashboard
+      // Hide Loading, Show Dashboard & Stock Workstation
       loadingOverlay.classList.add('hidden');
       resultsDashboard.classList.remove('hidden');
+      if (upfrontStockSection) upfrontStockSection.classList.remove('hidden');
       resultsDashboard.scrollIntoView({ behavior: 'smooth' });
 
       // Render Charts
@@ -857,71 +991,124 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Affiliate Card Rendering
+    // Decluttered Tabbed Affiliate Recommendations with Show More Toggle
+  let cachedAffiliates = null;
+  let activeAffiliateCategory = 'ALL';
+  let showAllAffiliates = false;
+
   async function renderAffiliateCards(results) {
     const container = document.getElementById('affiliates-cards-container');
     if (!container) return;
 
-    let affiliates = [
-      {
-        id: "hysa_savings",
-        category: "High-Yield Savings",
-        badge: "High Priority",
-        title: "High-Yield Cash Reserve (4.5% - 7.5% APY)",
-        description: "Standard checking accounts pay 0.01%. Transferring your emergency fund to a top-tier HYSA earns risk-free interest annually with full deposit insurance.",
-        ctaText: "Compare Top Savings Rates",
-        affiliateUrl: "https://www.bankrate.com/banking/savings/rates/",
-        affiliateUrlINR: "https://www.paisabazaar.com/savings-account/high-interest-rates/",
-        tag: "Zero Risk • High Yield"
-      },
-      {
-        id: "debt_consolidation",
-        category: "Debt Relief",
-        badge: "Save Interest",
-        title: "Low-Rate Personal Consolidation Loan",
-        description: "If your credit card interest is 20-28% APR, consolidating into a single fixed loan at 7-11% APR can slash monthly finance fees and save thousands.",
-        ctaText: "Check Pre-Qualified Rates",
-        affiliateUrl: "https://www.nerdwallet.com/best/loans/personal-loans/best-debt-consolidation-loans",
-        affiliateUrlINR: "https://www.bankbazaar.com/personal-loan.html",
-        tag: "Single-Digit Fixed APR"
-      },
-      {
-        id: "budget_tracker",
-        category: "Smart Budgeting",
-        badge: "Free Tool",
-        title: "Automated Budget & Subscription Tracker",
-        description: "Cancel forgotten subscriptions and automatically categorize your monthly expenses with a secure, zero-friction financial dashboard.",
-        ctaText: "Get Free Tracker App",
-        affiliateUrl: "https://wallet.budgetbakers.com/",
-        affiliateUrlINR: "https://moneyview.in/money-manager-app",
-        tag: "100% Free Plan"
-      },
-      {
-        id: "brokerage_invest",
-        category: "Wealth Building",
-        badge: "Long Term",
-        title: "Zero-Commission Automated Investing",
-        description: "Put your long-term savings to work with fractional shares, index funds, and automatic dividend reinvesting with bonus welcome incentives.",
-        ctaText: "Open Free Demat & Start",
-        affiliateUrl: "https://investor.vanguard.com/",
-        affiliateUrlINR: "https://zerodha.com/open-account",
-        tag: "Zero Commission"
-      }
-    ];
+    if (!cachedAffiliates) {
+      let affiliates = [
+        {
+          id: "hysa_savings",
+          category: "High-Yield Savings",
+          badge: "High Priority",
+          title: "High-Yield Cash Reserve (4.5% - 7.5% APY)",
+          description: "Standard checking accounts pay 0.01%. Transferring your emergency fund to a top-tier HYSA earns risk-free interest annually with full deposit insurance.",
+          ctaText: "Compare Top Savings Rates",
+          affiliateUrl: "https://www.bankrate.com/banking/savings/rates/",
+          affiliateUrlINR: "https://www.paisabazaar.com/savings-account/high-interest-rates/",
+          tag: "Zero Risk • High Yield"
+        },
+        {
+          id: "debt_consolidation",
+          category: "Debt Relief",
+          badge: "Save Interest",
+          title: "Low-Rate Personal Consolidation Loan",
+          description: "If your credit card interest is 20-28% APR, consolidating into a single fixed loan at 7-11% APR can slash monthly finance fees and save thousands.",
+          ctaText: "Check Pre-Qualified Rates",
+          affiliateUrl: "https://www.nerdwallet.com/best/loans/personal-loans/best-debt-consolidation-loans",
+          affiliateUrlINR: "https://www.bankbazaar.com/personal-loan.html",
+          tag: "Single-Digit Fixed APR"
+        },
+        {
+          id: "brokerage_invest",
+          category: "Wealth Building",
+          badge: "Long Term",
+          title: "Zero-Commission Automated Investing (Demat)",
+          description: "Put your long-term savings to work with fractional shares, index funds, and automatic dividend reinvesting with bonus welcome incentives.",
+          ctaText: "Open Free Demat & Start",
+          affiliateUrl: "https://investor.vanguard.com/",
+          affiliateUrlINR: "https://zerodha.com/open-account",
+          tag: "Zero Commission"
+        }
+      ];
 
-    // Try fetching custom config if available via web server
-    try {
-      const res = await fetch('affiliates-config.json');
-      if (res.ok) {
-        const json = await res.json();
-        if (json.affiliates) affiliates = json.affiliates;
+      try {
+        const res = await fetch('affiliates-config.json');
+        if (res.ok) {
+          const json = await res.json();
+          if (json.affiliates && json.affiliates.length > 0) {
+            affiliates = json.affiliates;
+          }
+        }
+      } catch (e) {
+        // Fallback works automatically
       }
-    } catch (e) {
-      // Fallback works automatically
+      cachedAffiliates = affiliates;
     }
 
+    const affiliates = cachedAffiliates;
     const isINR = currentCurrency === '₹' || document.getElementById('currency-select')?.value === 'INR';
 
-    container.innerHTML = affiliates.map(item => {
+    // Calculate category counts
+    const countAll = affiliates.length;
+    const countCards = affiliates.filter(a => (a.category || '').toLowerCase().includes('credit card')).length;
+    const countBanking = affiliates.filter(a => {
+      const cat = (a.category || '').toLowerCase();
+      return cat.includes('savings') || cat.includes('debt') || cat.includes('loan') || cat.includes('refinance');
+    }).length;
+    const countInvesting = affiliates.filter(a => {
+      const cat = (a.category || '').toLowerCase();
+      return cat.includes('wealth') || cat.includes('brokerage') || cat.includes('investing');
+    }).length;
+    const countTax = affiliates.filter(a => {
+      const cat = (a.category || '').toLowerCase();
+      return cat.includes('tax') || cat.includes('gold') || cat.includes('hedging');
+    }).length;
+
+    // Update Tab Badges
+    const cntAllEl = document.getElementById('aff-cnt-all');
+    const cntCardsEl = document.getElementById('aff-cnt-cards');
+    const cntBankingEl = document.getElementById('aff-cnt-banking');
+    const cntInvestEl = document.getElementById('aff-cnt-investing');
+    const cntTaxEl = document.getElementById('aff-cnt-tax');
+
+    if (cntAllEl) cntAllEl.textContent = countAll;
+    if (cntCardsEl) cntCardsEl.textContent = countCards;
+    if (cntBankingEl) cntBankingEl.textContent = countBanking;
+    if (cntInvestEl) cntInvestEl.textContent = countInvesting;
+    if (cntTaxEl) cntTaxEl.textContent = countTax;
+
+    // Filter by active category
+    let filtered = affiliates;
+    if (activeAffiliateCategory === 'Credit Cards') {
+      filtered = affiliates.filter(a => (a.category || '').toLowerCase().includes('credit card'));
+    } else if (activeAffiliateCategory === 'Banking') {
+      filtered = affiliates.filter(a => {
+        const cat = (a.category || '').toLowerCase();
+        return cat.includes('savings') || cat.includes('debt') || cat.includes('loan') || cat.includes('refinance');
+      });
+    } else if (activeAffiliateCategory === 'Investing') {
+      filtered = affiliates.filter(a => {
+        const cat = (a.category || '').toLowerCase();
+        return cat.includes('wealth') || cat.includes('brokerage') || cat.includes('investing');
+      });
+    } else if (activeAffiliateCategory === 'Tax & Gold') {
+      filtered = affiliates.filter(a => {
+        const cat = (a.category || '').toLowerCase();
+        return cat.includes('tax') || cat.includes('gold') || cat.includes('hedging');
+      });
+    }
+
+    // Determine slice based on showAllAffiliates
+    const initialLimit = 8;
+    const displayedItems = showAllAffiliates ? filtered : filtered.slice(0, initialLimit);
+
+    container.innerHTML = displayedItems.map(item => {
       const category = item.category || 'Featured Partner';
       const tag = item.tag || 'Verified Deal';
       const title = item.title || 'Financial Offer';
@@ -939,7 +1126,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       return `
-      <div class="glass-card glass-card-interactive p-5 flex flex-col justify-between bg-white border border-slate-200">
+      <div class="glass-card glass-card-interactive p-5 flex flex-col justify-between bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition">
         <div>
           <div class="flex items-center justify-between mb-3">
             <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full badge-emerald">${category}</span>
@@ -959,14 +1146,54 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `;
     }).join('');
+
+    // Toggle button management
+    const toggleBtn = document.getElementById('toggle-affiliates-btn');
+    const toggleText = document.getElementById('toggle-affiliates-text');
+
+    if (toggleBtn && toggleText) {
+      if (filtered.length <= initialLimit) {
+        toggleBtn.classList.add('hidden');
+      } else {
+        toggleBtn.classList.remove('hidden');
+        if (showAllAffiliates) {
+          toggleText.textContent = `Show Fewer Offers ↑`;
+        } else {
+          toggleText.textContent = `Show All ${filtered.length} Partner Offers (${activeAffiliateCategory}) ↓`;
+        }
+      }
+    }
+  }
+
+  // Wire Tab Buttons and Show More/Less Toggle for Affiliates
+  const tabButtons = document.querySelectorAll('.affiliate-tab-btn');
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabButtons.forEach(b => {
+        b.classList.remove('active', 'bg-slate-900', 'text-white');
+        b.classList.add('bg-white', 'text-slate-700');
+      });
+      btn.classList.add('active', 'bg-slate-900', 'text-white');
+      btn.classList.remove('bg-white', 'text-slate-700');
+
+      activeAffiliateCategory = btn.getAttribute('data-category') || 'ALL';
+      showAllAffiliates = false; // Reset to top cards on tab switch
+      renderAffiliateCards(calculationResults);
+    });
+  });
+
+  const toggleAffiliatesBtn = document.getElementById('toggle-affiliates-btn');
+  if (toggleAffiliatesBtn) {
+    toggleAffiliatesBtn.addEventListener('click', () => {
+      showAllAffiliates = !showAllAffiliates;
+      renderAffiliateCards(calculationResults);
+    });
   }
 
   // Restart & Recalculate
   restartBtn.addEventListener('click', () => {
     resultsDashboard.classList.add('hidden');
-    intakeSection.classList.remove('hidden');
-    currentStep = 1;
-    updateWizardUI();
+    setIntent('blueprint');
   });
 
   // Print / Save as PDF
